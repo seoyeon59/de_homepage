@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>공격 로그</h2>
+<table border="1">
+    <tr><th>ID</th><th>IP</th><th>Query</th><th>Time</th></tr>
+    {% for log in logs %}
+    <tr>
+        <td>{{ log.id }}</td>
+        <td>{{ log.ip }}</td>
+        <td>{{ log.query }}</td>
+        <td>{{ log.timestamp }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
