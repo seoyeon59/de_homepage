@@ -1,0 +1,79 @@
+/* 글꼴 관련 css 파일 */
+
+/* 기본 글꼴 설정 */
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 굵은 글씨 */
+.font-bold {
+  font-weight: bold;
+}
+
+/* 얇은 글씨 */
+.font-light {
+  font-weight: 300;
+}
+
+/* 기울임 글씨 */
+.font-italic {
+  font-style: italic;
+}
+
+/* 밑줄 */
+.font-underline {
+  text-decoration: underline;
+}
+
+/* 밑줄 + 기울임 */
+.font-italic-underline {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+/* 밑줄 + 굵은 글씨 */
+.font-bold-underline {
+  font-weight: bold;
+  text-decoration: underline;
+
+}
+
+/* 대문자 변환 */
+.font-uppercase {
+  text-transform: uppercase;
+}
+
+/* 소문자 변환 */
+.font-lowercase {
+  text-transform: lowercase;
+}
+
+/* 첫 글자만 대문자 */
+.font-capitalize {
+  text-transform: capitalize;
+}
+
+/* 작은 글씨 */
+.font-small {
+  font-size: 0.875rem;
+}
+
+/* 큰 글씨 */
+.font-large {
+  font-size: 1.5rem;
+}
+
+/* 사용자 정의 색상 */
+.font-gray {
+  color: #555;
+}
+
+.font-blue {
+  color: #007BFF;
+}
+
+.font-red {
+  color: #dc3545;
+}
