@@ -67,3 +67,10 @@ ul.nav-tabs li a.active {
   color: white;
   cursor: default;
 }
+
+a.no-link-style {
+  text-decoration: none;
+  color: inherit;
+  text-decoration: underline;
+}
+
