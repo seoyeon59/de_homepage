@@ -1,0 +1,18 @@
+<!--글 수정 페이지-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>글 수정</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='edit.css') }}">
+</head>
+<body>
+  <h2>글 수정</h2>
+  <form action="{{ url_for('edit', post_id=post_id) }}" method="post">
+    <input type="text" name="title" value="{{ post.title }}" required>
+    <textarea name="content" rows="10" required>{{ post.content }}</textarea>
+    <button type="submit">저장</button>
+  </form>
+  <a href="{{ url_for('post_detail', post_id=post_id) }}">취소</a>
+</body>
+</html>

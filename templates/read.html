@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>글 목록 - 게시판</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='read.css') }}">
+</head>
+<body>
+  <h1>게시판</h1>
+  <div class="board-container">
+    <ul class="post-list">
+      {% for post in posts %}
+        <li>
+          <a href="{{ url_for('post_detail', post_id=loop.index0) }}">
+            {{ loop.revindex }}. {{ post.title }}
+          </a>
+          <span class="meta">조회수: {{ post.views or 0 }}</span>
+          <form action="{{ url_for('delete', post_id=loop.index0) }}" method="post" class="delete-form" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+            <button type="submit">삭제</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="bottom-links">
+      <a href="/write">글쓰기</a> | <a href="/">메인으로</a>
+    </div>
+  </div>
+</body>
+</html>
