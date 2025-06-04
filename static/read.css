@@ -1,127 +1,127 @@
-    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-    /* 기본 설정 */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Nanum Gothic', sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 30px 15px;
-      color: #333;
-      min-height: 100vh;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-weight: 700;
-      color: #2c3e50;
-      letter-spacing: 1px;
-    }
+/* 기본 설정 */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 30px 15px;
+  color: #333;
+  min-height: 100vh;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #2c3e50;
+  letter-spacing: 1px;
+}
 
-    /* 게시판 컨테이너 */
-    .board-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      padding: 25px 30px;
-    }
+/* 게시판 컨테이너 */
+.board-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 25px 30px;
+}
 
-    /* 리스트 */
-    ul.post-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    ul.post-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      border-bottom: 1px solid #eee;
-      transition: background-color 0.15s ease-in-out;
-    }
-    ul.post-list li:hover {
-      background-color: #f0f8ff;
-    }
+/* 리스트 */
+ul.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.post-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.15s ease-in-out;
+}
+ul.post-list li:hover {
+  background-color: #f0f8ff;
+}
 
-    /* 글 제목과 번호 */
-    ul.post-list li a {
-      flex-grow: 1;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #2980b9;
-      text-decoration: none;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    ul.post-list li a:hover {
-      text-decoration: underline;
-    }
+/* 글 제목과 번호 */
+ul.post-list li a {
+  flex-grow: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2980b9;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ul.post-list li a:hover {
+  text-decoration: underline;
+}
 
-    /* 메타정보(조회수) */
-    .meta {
-      margin-left: 20px;
-      color: #7f8c8d;
-      font-size: 0.85rem;
-      min-width: 70px;
-      text-align: right;
-    }
+/* 메타정보(조회수) */
+.meta {
+  margin-left: 20px;
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  min-width: 70px;
+  text-align: right;
+}
 
-    /* 삭제 버튼 */
-    form.delete-form {
-      margin-left: 15px;
-    }
-    form.delete-form button {
-      background-color: #e74c3c;
-      border: none;
-      color: white;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      font-size: 0.9rem;
-    }
-    form.delete-form button:hover {
-      background-color: #c0392b;
-    }
+/* 삭제 버튼 */
+form.delete-form {
+  margin-left: 15px;
+}
+form.delete-form button {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+}
+form.delete-form button:hover {
+  background-color: #c0392b;
+}
 
-    /* 하단 링크 */
-    .bottom-links {
-      margin-top: 30px;
-      text-align: center;
-    }
-    .bottom-links a {
-      display: inline-block;
-      margin: 0 10px;
-      color: #3498db;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .bottom-links a:hover {
-      color: #21618c;
-      text-decoration: underline;
-    }
+/* 하단 링크 */
+.bottom-links {
+  margin-top: 30px;
+  text-align: center;
+}
+.bottom-links a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #3498db;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.bottom-links a:hover {
+  color: #21618c;
+  text-decoration: underline;
+}
 
-    /* 모바일 대응 */
-    @media(max-width: 600px){
-      ul.post-list li {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .meta, form.delete-form {
-        margin-left: 0;
-        margin-top: 6px;
-        width: 100%;
-        text-align: left;
-      }
-      form.delete-form button {
-        width: 100%;
-      }
-    }
+/* 모바일 대응 */
+@media(max-width: 600px){
+  ul.post-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .meta, form.delete-form {
+    margin-left: 0;
+    margin-top: 6px;
+    width: 100%;
+    text-align: left;
+  }
+  form.delete-form button {
+    width: 100%;
+  }
+}

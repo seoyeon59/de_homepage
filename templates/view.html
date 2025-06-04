@@ -17,7 +17,10 @@
     <div class="buttons">
       <a href="{{ url_for('read') }}">목록으로</a>
       <a href="{{ url_for('edit', post_id=post.id) }}">수정</a>
-      <a href="{{ url_for('delete', post_id=post.id) }}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
+      <form action="{{ url_for('delete', post_id=post.id) }}" method="post" style="display:inline;">
+        <button type="submit" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</button>
+      </form>
+
     </div>
 
     <div class="comments">
