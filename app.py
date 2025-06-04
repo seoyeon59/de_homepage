@@ -1,25 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
-import pymysql
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 app = Flask(__name__)
 
-# 실제 DB 연결은 추후 적용
-def get_connection():
-    return pymysql.connect(
-        host='localhost',
-        user='your_username',
-        password='your_password',
-        db='your_database',
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor
-    )
+# Firebase 초기화 (한 번만 실행)
+cred = credentials.Certificate('de-homepage-firebase-adminsdk-fbsvc-f5575c8f23.json')  # 키 파일 경로 맞게
+firebase_admin.initialize_app(cred)
+firebase_db = firestore.client()
 
-# 메인 페이지
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# 글쓰기 페이지
 @app.route('/write', methods=['GET', 'POST'])
 def write():
     if request.method == 'POST':
@@ -27,54 +20,52 @@ def write():
         content = request.form.get('content')
 
         try:
-            conn = get_connection()
-            cursor = conn.cursor()
-            sql = "INSERT INTO posts (title, content) VALUES (%s, %s)"
-            cursor.execute(sql, (title, content))
-            conn.commit()
-            cursor.close()
-            conn.close()
+            # Firestore에 저장
+            firebase_db.collection('posts').add({
+                'title': title,
+                'content': content,
+                'views': 0,
+                'comments': []
+            })
             return redirect(url_for('board'))
         except Exception as e:
             return f"DB 저장 중 오류 발생: {e}"
 
     return render_template('write.html')
 
-# 글 목록
 @app.route('/board')
 def board():
     try:
-        conn = get_connection()
-        cursor = conn.cursor()
-        sql = "SELECT id, title FROM posts ORDER BY id DESC"
-        cursor.execute(sql)
-        posts = cursor.fetchall()
-        cursor.close()
-        conn.close()
+        posts = []
+        docs = firebase_db.collection('posts').order_by('title').stream()
+        for doc in docs:
+            post = doc.to_dict()
+            post['id'] = doc.id  # Firestore 문서 ID를 id로
+            posts.append(post)
     except Exception as e:
         posts = []
+        print(f"게시글 목록 로딩 오류: {e}")
+
     return render_template('board.html', posts=posts)
 
-# 글 상세 보기
-@app.route('/post/<int:post_id>')
+@app.route('/post/<post_id>')
 def post_detail(post_id):
     try:
-        conn = get_connection()
-        cursor = conn.cursor()
-        sql = "SELECT * FROM posts WHERE id = %s"
-        cursor.execute(sql, (post_id,))
-        post = cursor.fetchone()
-        cursor.close()
-        conn.close()
-
-        if post:
+        doc_ref = firebase_db.collection('posts').document(post_id)
+        doc = doc_ref.get()
+        if doc.exists:
+            post = doc.to_dict()
+            post['id'] = doc.id
+            # 조회수 1 증가
+            new_views = post.get('views', 0) + 1
+            doc_ref.update({'views': new_views})
+            post['views'] = new_views
             return render_template('view.html', post=post)
         else:
             return "게시글을 찾을 수 없습니다.", 404
     except Exception as e:
         return f"DB 오류 발생: {e}"
 
-# 공지사항 페이지
 @app.route('/notice')
 def notice():
     return render_template('notice.html')
