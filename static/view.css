@@ -34,17 +34,27 @@ body {
   margin-bottom: 30px;
 }
 
-.buttons a {
-  display: inline-block;
-  margin-right: 10px;
-  text-decoration: none;
-  color: white;
-  background-color: #007bff;
-  padding: 8px 14px;
-  border-radius: 6px;
+.buttons {
+  margin-bottom: 30px;
 }
 
-.buttons a:hover {
+/* 💡 모든 버튼 (a, button) 동일 스타일 */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: #2980b9;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
   background-color: #0056b3;
 }
 
@@ -69,17 +79,4 @@ body {
   border-radius: 6px;
   border: 1px solid #ccc;
   margin-bottom: 10px;
-}
-
-.comment-form button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-size: 16px;
-}
-
-.comment-form button:hover {
-  background-color: #218838;
 }

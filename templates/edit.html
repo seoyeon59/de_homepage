@@ -14,7 +14,8 @@
     <input type="text" name="title" value="{{ post.title }}" required><br>
     <textarea name="content" required>{{ post.content }}</textarea><br>
     <button type="submit">수정 완료</button>
+    <a href="{{ url_for('post_detail', post_id=post_id) }}" class="btn">취소</a>
   </form>
-  <a href="{{ url_for('post_detail', post_id=post_id) }}">취소</a>
 </body>
 </html>
+

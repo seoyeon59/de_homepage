@@ -4,18 +4,44 @@ body {
   margin: 40px auto;
   padding: 0 20px;
 }
+
 form {
   display: flex;
   flex-direction: column;
+  gap: 10px;  /* 버튼 사이 간격 */
 }
+
 input, textarea {
   margin-bottom: 10px;
   padding: 8px;
   font-size: 16px;
 }
-button {
-  width: 100px;
-  padding: 8px;
-  font-size: 16px;
+
+/* 버튼 영역을 나란히 정렬 */
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* 공통 버튼 스타일 */
+button,
+a.btn {
+  background-color: #2980b9;
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 6px;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  flex: 1;  /* 동일한 폭 */
+}
+
+button:hover,
+a.btn:hover {
+  background-color: #1f6391;
 }
