@@ -3,14 +3,67 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <title>게시판</title>
+  <meta charset="UTF-8">
+  <title>게시판</title>
+    <style>
+    .board-container {
+      background: white;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 10px;
+      padding: 30px 35px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .board-container h1 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #2980b9;
+      margin-bottom: 25px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .menu a {
+      display: block;
+      padding: 14px;
+      text-decoration: none;
+      color: #2980b9;
+      border: 1.5px solid #2980b9;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      font-size: 1.05rem;
+    }
+
+    .menu a:hover {
+      background-color: #2980b9;
+      color: white;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+     </style>
 </head>
 <body>
-    <h1>게시판</h1>
-    <ul>
-        <li><a href="/notice">공지 사항</a></li>
-        <li><a href="/read">글 목록</a></li>
-    </ul>
-    <a href="/">메인으로</a>
+  <div class="container">
+    <h1>📋 게시판 메뉴</h1>
+    <div class="menu">
+      <a href="/notice">📢 공지사항</a>
+      <a href="/read">📝 글 목록</a>
+      <a href="/">🏠 메인으로</a>
+    </div>
+    <div class="footer">© 2025 게시판 시스템</div>
+  </div>
 </body>
 </html>
