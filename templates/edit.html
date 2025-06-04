@@ -10,10 +10,10 @@
   
 <body>
   <h2>글 수정</h2>
-  <form action="{{ url_for('edit', post_id=post_id) }}" method="post">
-    <input type="text" name="title" value="{{ post.title }}" required>
-    <textarea name="content" rows="10" required>{{ post.content }}</textarea>
-    <button type="submit">저장</button>
+  <form method="post">
+    <input type="text" name="title" value="{{ post.title }}" required><br>
+    <textarea name="content" required>{{ post.content }}</textarea><br>
+    <button type="submit">수정 완료</button>
   </form>
   <a href="{{ url_for('post_detail', post_id=post_id) }}">취소</a>
 </body>
