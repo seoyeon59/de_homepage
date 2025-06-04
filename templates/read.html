@@ -10,21 +10,27 @@
 <body>
   <h1>게시판</h1>
   <div class="board-container">
+
+    <!-- 게시글 리스트 -->
     <ul class="post-list">
+
       {% for post in posts %}
         <li>
-          <a href="{{ url_for('post_detail', post_id=loop.index0) }}">
-            {{ loop.revindex }}. {{ post.title }}
+          <a href="{{ url_for('post_detail', post_id=post['id']) }}">
+            {{ post['title'] or '[제목 없음]' }}
           </a>
-          <span class="meta">조회수: {{ post.views or 0 }}</span>
-          <form action="{{ url_for('delete', post_id=loop.index0) }}" method="post" class="delete-form" onsubmit="return confirm('정말 삭제하시겠습니까?');">
-            <button type="submit">삭제</button>
-          </form>
+          <span class="meta">조회수: {{ post.get('views', 0) }}</span>
+          <!-- 삭제 버튼은 아직 기능 없음 -->
         </li>
+      {% else %}
+        <li>게시글이 없습니다.</li>
       {% endfor %}
+
     </ul>
+
     <div class="bottom-links">
       <a href="/write">글쓰기</a> | <a href="/">메인으로</a>
+
     </div>
   </div>
 </body>
