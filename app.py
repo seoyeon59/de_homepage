@@ -1,15 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
-import firebase_admin
-from firebase_admin import credentials, firestore
+from flask import Blueprint, render_template, request, redirect, url_for
+from firebase import firebase_db
+from firebase_admin import firestore  # ArrayUnion 등 사용 위해
+from flask import Flask
 
 app = Flask(__name__)
-
-# Firebase 초기화 (한 번만 실행)
-cred = credentials.Certificate('de-homepage-firebase-adminsdk-fbsvc-f5575c8f23.json')  # 키 파일 경로 맞게
-firebase_admin.initialize_app(cred)
-firebase_db = firestore.client()
-
 @app.route('/')
+
 def index():
     return render_template('index.html')
 
