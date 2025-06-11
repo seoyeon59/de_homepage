@@ -16,11 +16,10 @@
 
       {% for post in posts %}
         <li>
-          <a href="{{ url_for('post_detail', post_id=post['id']) }}">
-            {{ post['title'] or '[제목 없음]' }}
+          <a href="{{ url_for('post_detail', post_id=post.id) }}">
+            {{ post.title if post.title else '[제목 없음]' }}
           </a>
-          <span class="meta">조회수: {{ post.get('views', 0) }}</span>
-          <!-- 삭제 버튼은 아직 기능 없음 -->
+          <span class="meta">조회수: {{ post.views or 0 }}</span>
         </li>
       {% else %}
         <li>게시글이 없습니다.</li>

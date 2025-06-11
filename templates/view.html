@@ -25,9 +25,10 @@
 
     <div class="comments">
       <h3>댓글</h3>
+
       {% if post.comments %}
         {% for comment in post.comments %}
-          <div class="comment">{{ comment }}</div>
+          <div class="comment">{{ comment.content }}</div>
         {% endfor %}
       {% else %}
         <p>댓글이 아직 없습니다.</p>
