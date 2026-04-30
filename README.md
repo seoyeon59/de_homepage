@@ -1,7 +1,6 @@
 # 🚀 소학회 홈페이지 개발 및 로그 기반 보안 위협 분석 프로젝트
 
 서울여자대학교 데이터사이언스학과 소학회 **'데이터 엔지니어스(Data Engenius)'** 활동의 일환으로 진행된 프로젝트입니다. 
-
 Flask 기반의 웹 서비스를 구축하고, 리눅스 환경에 배포한 후 축적된 로그 데이터를 분석하여 보안 위협을 탐지하는 전 과정을 수행했습니다.
 
 ---
@@ -59,3 +58,6 @@ FROM homepage_data
 WHERE status LIKE '4%' 
 GROUP BY ip 
 ORDER BY time;
+
+
+* 분석 참고 페이지 : https://dataengenius.tistory.com/216
