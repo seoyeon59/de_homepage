@@ -34,6 +34,8 @@ Flask 기반의 웹 서비스를 구축하고, 리눅스 환경에 배포한 후
 ---
 
 ## 3. 로그 기반 공격 유형 분석 (Main Analysis)
+분석 참고 페이지 : [데이터엔지니어스 티스토리](https://dataengenius.tistory.com/216)
+
 홈페이지 배포 후 발생한 실제 트래픽 데이터를 바탕으로 데이터 엔지니어링 관점의 분석을 진행했습니다.
 
 ### 🔍 데이터 전처리 및 분석 방법
@@ -59,6 +61,3 @@ WHERE status LIKE '4%'
 GROUP BY ip 
 ORDER BY time;
 ```
-
-
-* 분석 참고 페이지 : [데이터엔지니어스 티스토리](https://dataengenius.tistory.com/216)
