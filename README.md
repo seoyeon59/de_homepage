@@ -58,6 +58,6 @@ FROM homepage_data
 WHERE status LIKE '4%' 
 GROUP BY ip 
 ORDER BY time;
+```
 
-
-* 분석 참고 페이지 : https://dataengenius.tistory.com/216
+* 분석 참고 페이지 : [데이터엔지니어스 티스토리] (https://dataengenius.tistory.com/216)
